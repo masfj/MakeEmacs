@@ -1,0 +1,14 @@
+#+TITLE: MakeEmacs
+
+Emacsのソースコードからビルドする何か(macOS only)
+
+* Usage
+#+begin_src bash
+make EMACS_VERSION=27.1 PATCH_VERSION=8.0 all
+#+end_src
+
+** make 引数
+- EMACS_VERSION :: Emacsのバージョン
+- PATCH_VERSION :: Emacs Hackers Patchのバージョン
+- RC_VERSION :: RC版PatchのRCバージョン
+
