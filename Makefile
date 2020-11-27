@@ -46,10 +46,10 @@ build: untar
 
 install: build
 	sudo $(MAKE) -C emacs-$(EMACS_VERSION) install
-	cp -r emacs-$(EMACS_VERSION)/mac/Emacs.app /Applications/emacs-$(EMACS_VERSION).app
+	cp -r emacs-$(EMACS_VERSION)/mac/Emacs.app /Applications/Emacs-$(EMACS_VERSION)-mac-$(EMACS_PATCH_VERSION).app
 
 
-clean:
+clean: args_check
 	$(MAKE) -C emacs-$(EMACS_VERSION) clean
 	@rm -rf *.tar.gz emacs-$(EMACS_VERSION) emacs-$(EMACS_VERSION)$(RC_VERSION)-mac-$(PATCH_VERSION)
 
