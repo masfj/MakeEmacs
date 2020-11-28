@@ -41,12 +41,14 @@ build: untar
 	cp ../emacs-$(EMACS_VERSION)$(RC_VERSION)-mac-$(PATCH_VERSION)/src/* src && \
 	cp ../emacs-$(EMACS_VERSION)$(RC_VERSION)-mac-$(PATCH_VERSION)/lisp/term/mac-win.el lisp/term && \
 	cp nextstep/Cocoa/Emacs.base/Contents/Resources/Emacs.icns mac/Emacs.app/Contents/Resources/Emacs.icns && \
-	./configure --with-mac --with-modules --without-x
+	./configure --with-mac --with-modules --without-x --with-mailutils
 	$(MAKE) -C emacs-$(EMACS_VERSION) -j16 all
 
+## https://masutaka.net/chalow/2014-10-25-1.html
+## export CFLAGS+=`xml2-config --cflags`/libxml2
 install: build
 	sudo $(MAKE) -C emacs-$(EMACS_VERSION) install
-	cp -r emacs-$(EMACS_VERSION)/mac/Emacs.app /Applications/Emacs-$(EMACS_VERSION)-mac-$(EMACS_PATCH_VERSION).app
+	cp -r emacs-$(EMACS_VERSION)/mac/Emacs.app /Applications/Emacs-$(EMACS_VERSION)-mac-$(PATCH_VERSION).app
 
 
 clean: args_check
